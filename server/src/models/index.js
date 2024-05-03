@@ -1,4 +1,4 @@
-const { User } = require('./User')
+const { User }  = require('./User')
 
 const { Deck } = require('./Deck');
 const { Card } = require('./Card');
@@ -11,10 +11,10 @@ Deck.belongsTo(User)
 Deck.hasMany(Card)
 Card.belongsTo(Deck)
 
-Card.belongsTo(Attack)
-Attack.hasMany(Card)
 
-console.log(User)
+Card.hasMany(Attack)
+Attack.belongsTo(Card)
+
 
 module.exports = { User, Deck, Card, Attack };
 
