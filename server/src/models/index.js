@@ -5,15 +5,15 @@ const { Card } = require('./Card');
 const { Attack } = require('./Attack');
 
 // Associations
-User.hasMany(Deck)
+User.hasOne(Deck)
 Deck.belongsTo(User)
 
 Deck.hasMany(Card)
 Card.belongsTo(Deck)
 
 
-Card.hasMany(Attack)
-Attack.belongsTo(Card)
+Card.belongsToMany(Attack, { through: 'CardAttack' });
+Attack.belongsToMany(Card, { through: 'CardAttack' });
 
 
 module.exports = { User, Deck, Card, Attack };
